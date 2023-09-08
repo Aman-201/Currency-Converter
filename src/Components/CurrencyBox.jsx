@@ -1,5 +1,8 @@
-function CurrencyBox({amount=0,setAmount,currency="America",amt_flag=false,which="from"})
+function CurrencyBox({amount=0,setAmount,currency_arr,amt_flag=false,which="from"})
 {
+    console.log("===================")
+    console.log(currency_arr)
+
     return (
        <div className="bg-white flex my-3">
         <div className="px-4 ">
@@ -24,7 +27,17 @@ function CurrencyBox({amount=0,setAmount,currency="America",amt_flag=false,which
             <p >Currency Type</p>
             <p className=" py-2"></p>
             {/* <label htmlFor="country">{currency}</label> */}
-            <input type="dropdown" id="country" value={currency} className="mx-auto w-20"/>
+            <label htmlFor="country" className="mx-auto w-20">{currency_arr}</label>
+
+<select name="country" id="country" onClick={()=>{currency_arr.forEach((val,idx)=>{
+        console.log("\\\\\\\\\\\\\\\\\\",val.key);
+        <option value={val}>yuiyi</option>})}}>
+    {/* {currency_arr.forEach((val,idx)=>{
+        console.log("\\\\\\\\\\\\\\\\\\",val.key);
+        <option value={val}>yuiyi</option>
+    })} */}
+</select>
+            {/* <input type="dropdown" id="country" value={currency} className="mx-auto w-20"/> */}
         </div>
        </div>
     )
