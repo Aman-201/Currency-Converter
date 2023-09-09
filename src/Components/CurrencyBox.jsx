@@ -1,4 +1,4 @@
-function CurrencyBox({amount=0,setAmount,currency_arr,amt_flag=false,which="from"})
+function CurrencyBox({amount=0,setAmount,currency_arr,amt_flag=false,which="from",currency="",setCurrency})
 {
     console.log("===================")
     console.log(currency_arr)
@@ -27,11 +27,21 @@ function CurrencyBox({amount=0,setAmount,currency_arr,amt_flag=false,which="from
             <p >Currency Type</p>
             <p className=" py-2"></p>
             {/* <label htmlFor="country">{currency}</label> */}
-            <label htmlFor="country" className="mx-auto w-20">{currency_arr}</label>
+            <label htmlFor="country" className="mx-auto w-20">{currency}</label>
 
-<select name="country" id="country" onClick={()=>{currency_arr.forEach((val,idx)=>{
-        console.log("\\\\\\\\\\\\\\\\\\",val.key);
-        <option value={val}>yuiyi</option>})}}>
+{/* <select name="country" id="country" onChange={()=>{ currency_arr.map((val,idx)=>{
+        // console.log("\\\\\\\\\\\\\\\\\\",val);
+        
+        <option value={val}>{val}</option>})}}> */}
+
+<select name="country" id="country" onChange={(e)=>{console.log(e.target.value); setCurrency(e.target.value)}}>
+  
+    {console.log(",,,,,,,,,,,,",currency_arr)}
+{ currency_arr.map((val)=>(
+        // console.log("\\\\\\\\\\\\\\\\\\",val)
+        
+        <option value={val}>{val}</option>))}
+
     {/* {currency_arr.forEach((val,idx)=>{
         console.log("\\\\\\\\\\\\\\\\\\",val.key);
         <option value={val}>yuiyi</option>
