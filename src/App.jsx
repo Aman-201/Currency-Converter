@@ -33,7 +33,7 @@ function App() {
 //     Object.keys(data.data).forEach((key)=>{ console.log("0000000000000000000",currency_arr);  setCurrency_arr([...currency_arr,{key:key}]) })
 //    console.log("+++++++++++++++++++++",currency_arr)
   
-//   })();
+  // })();//
 const freecurrencyapi = new Freecurrencyapi('fca_live_9TVN51XSRp7W5qMHiklAYXycAc3HdBCNwU15Zk1k');
 freecurrencyapi.latest({
  
