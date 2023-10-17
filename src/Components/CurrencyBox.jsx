@@ -1,5 +1,11 @@
-function CurrencyBox({amount=0,setAmount,currency_arr,amt_flag=false,which="from",currency="",setCurrency})
+function CurrencyBox({amount,setAmount,currency_arr,amt_flag=false,which,currency,setCurrency,curr_conversion,amt1,curr1})
 {
+    console.log(curr1)
+    console.log( curr_conversion[currency])
+    console.log(amount)
+    console.log(amt1)
+    console.log(amt1 / curr_conversion[curr1])
+    console.log((amt1 / curr_conversion[curr1])*curr_conversion[currency])
     console.log("===================")
     console.log(currency_arr)
 
@@ -8,7 +14,7 @@ function CurrencyBox({amount=0,setAmount,currency_arr,amt_flag=false,which="from
         <div className="px-4 ">
             <p className=" my-0">{which}</p>
             <p className=" py-2"></p>
-            <p className="">{amount}</p>
+            <p className="">{(which==="from")?amount:((amt1 / curr_conversion[curr1])*curr_conversion[currency])}</p>
         </div>
         {(amt_flag==true)? <div className="px-4 my-auto">
             <button onClick={()=>{setAmount(amount+1)}}>+</button>
@@ -34,7 +40,7 @@ function CurrencyBox({amount=0,setAmount,currency_arr,amt_flag=false,which="from
         
         <option value={val}>{val}</option>})}}> */}
 
-<select name="country" id="country" onChange={(e)=>{console.log(e.target.value); setCurrency(e.target.value)}}>
+<select name="country" id="country" onChange={(e)=>{  console.log(e.target.value); console.log(curr_conversion); setCurrency(e.target.value); console.log(currency); if(which==="to"){ console.log("inside to");setAmount((amt1 / curr_conversion[curr1])*curr_conversion[currency])} }}>
   
     {console.log(",,,,,,,,,,,,",currency_arr)}
 { currency_arr.map((val)=>(
